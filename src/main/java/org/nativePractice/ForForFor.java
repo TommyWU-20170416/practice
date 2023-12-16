@@ -1,5 +1,9 @@
-package org.example;
+package org.nativePractice;
 
+/**
+ * 這邊主要是想要測試 JVM C2 Compiler
+ * 當重複次數夠多就會激發 C2 優化
+ */
 public class ForForFor {
     public static void main(String[] args) {
         String sentence = "";

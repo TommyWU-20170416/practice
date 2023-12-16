@@ -1,4 +1,4 @@
-package org.example;
+package org.nativePractice;
 
 public class JavaNativeInterfaceExample {
 
