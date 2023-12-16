@@ -1,4 +1,4 @@
-package org.nativePractice;
+package org.nativepractice;
 
 /**
  * 這邊主要是想要測試 JVM C2 Compiler
