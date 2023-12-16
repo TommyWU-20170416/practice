@@ -1,4 +1,4 @@
-package org.example.interview.shallowcopy;
+package org.interview.shallowcopy;
 
 /**
  * Object clone 實作淺拷貝

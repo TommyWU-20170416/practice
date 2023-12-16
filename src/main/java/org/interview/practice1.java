@@ -1,4 +1,4 @@
-package org.example.interview;
+package org.interview;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 

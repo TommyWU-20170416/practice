@@ -1,4 +1,4 @@
-package org.example;
+package org.interview.classloader;
 
 public class TestClassLoader {
     public static void main(String[] args) {

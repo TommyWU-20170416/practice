@@ -1,4 +1,4 @@
-package org.example.interview.deepcopy;
+package org.interview.deepcopy;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

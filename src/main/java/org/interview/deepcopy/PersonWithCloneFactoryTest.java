@@ -1,4 +1,4 @@
-package org.example.interview.deepcopy;
+package org.interview.deepcopy;
 
 /**
  * 這邊測試的是 使用 newInstance 這類的靜態工廠方法達到深拷貝

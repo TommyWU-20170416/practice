@@ -1,4 +1,4 @@
-package org.example.interview.deepcopy;
+package org.interview.deepcopy;
 
 /**
  * Object clone 實作深拷貝 = 淺拷貝 + 賦值給 address

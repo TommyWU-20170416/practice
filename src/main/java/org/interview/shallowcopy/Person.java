@@ -1,4 +1,4 @@
-package org.example.interview.deepcopy;
+package org.interview.shallowcopy;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,9 +15,7 @@ public class Person implements Cloneable {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Person cloned = (Person) super.clone();
-        cloned.address = new Address(this.address.getCity(), this.address.getStreet());
-        return cloned;
+        return super.clone();
     }
 }
 
