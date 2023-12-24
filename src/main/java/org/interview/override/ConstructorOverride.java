@@ -18,9 +18,9 @@ class SubConstructorOverride extends ConstructorOverride {
      * 基本上就等於是在新建相同的父類了
      * 因此做不到構造器的重寫
      */
-    @Override
-    ConstructorOverride() {
-        System.out.println("我是子類重寫 父類 構造器");
-    }
+//    @Override
+//    ConstructorOverride() {
+//        System.out.println("我是子類重寫 父類 構造器");
+//    }
 
 }
