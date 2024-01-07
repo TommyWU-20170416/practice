@@ -10,11 +10,13 @@ interface MyInterface {
     // 默認方法
     // 提供給實現類一個默認的行為且不影響原本的實作
     // 若有需要，實現類也可自己重寫內容
+    // 子類也可以直接調用父類接口默認方法
     default void defaultMethod() {
         System.out.println("Interface - defaultMethod");
     }
 
     // 靜態方法
+    // 子類也可以直接調用父類接口默認方法，但需要在 static method 中被呼叫
     static void staticMethod() {
         System.out.println("Interface - staticMethod");
     }

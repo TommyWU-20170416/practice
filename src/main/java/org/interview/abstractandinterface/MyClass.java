@@ -57,4 +57,8 @@ public class MyClass extends AbstractClass implements MyInterface {
         MyInterface.staticMethod();
     }
 
+    void myCustomMethod() {
+        // IMathOperation.defaultMethod(); // 這樣錯是因為 defaultMethod 需要被實例呼叫，或是使用 super 方式呼叫。ex: MyInterface.super.defaultMethod();
+        // MyInterface.interfaceMethod(); // 這樣錯是因為 非靜態方法需要由實例來呼叫
+    }
 }
