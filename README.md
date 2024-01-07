@@ -24,6 +24,8 @@
     * [LambdaDemo4.java](src/main/java/org/interview/lambda/LambdaDemo4.java) - 泛型的搭配
 10. Stream API
     * [StreamDemo1.java](src/main/java/org/interview/stream/StreamDemo1.java)
+11. Method Reference
+    * [MethodReferenceDemo1.java](src/main/java/org/interview/methodreference/MethodReferenceDemo1.java)
 ## 還找不到範例先建立資料夾
 
 * [parallelism](src/main/java/org/interview/parallelism)
