@@ -22,6 +22,8 @@
     * [LambdaDemo2.java](src/main/java/org/interview/lambda/LambdaDemo2.java) - 自定義函數式接口
     * [LambdaDemo3.java](src/main/java/org/interview/lambda/LambdaDemo3.java) - 自定義函數並且客製化包裝
     * [LambdaDemo4.java](src/main/java/org/interview/lambda/LambdaDemo4.java) - 泛型的搭配
+10. Stream API
+    * [StreamDemo1.java](src/main/java/org/interview/stream/StreamDemo1.java)
 ## 還找不到範例先建立資料夾
 
 * [parallelism](src/main/java/org/interview/parallelism)
