@@ -1,11 +1,11 @@
 package org.interview.methodreference;
 
-import java.util.Comparator;
-import java.util.function.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class MethodReferenceDemo1 {
     public static void main(String[] args) {
-
         // 對象::實例方法
         // 預期無參數與一個返回，所以用 Supplier
         String str = "Hello, World!";
