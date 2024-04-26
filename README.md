@@ -29,3 +29,31 @@
 ## 還找不到範例先建立資料夾
 
 * [parallelism](src/main/java/org/interview/parallelism)
+
+---
+
+## [hiskio-高效圖解演算法](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio)
+這課程有完整的介紹流程，java 實作跟 leetcode，覺得滿划算就買了
+
+## 入門篇
+### Array
+[Array_Impl3.java](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio%2FArray_Impl3.java)
+
+### Recursion
+了解遞迴的實作方式
+[Fibonacci.java](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio%2FFibonacci.java)
+
+### 排序法
+1. #### [冒泡排序法 bubble sort]([bubblesort](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio%2Fsort%2Fbubblesort))
+- 時間: O(n) ~ O(n^2)
+- 空間: 原地交換，沒有額外空間使用
+- 實現簡單好理解
+- 不適合用在大量的排序
+
+2. #### [插入排序法 insertion sort]([insertionsort](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio%2Fsort%2Finsertionsort))
+- 時間: O(n) ~ O(n^2)
+- 空間: 原地交換，沒有額外空間使用
+- 適合用在大致上有排序的數列
+- 不適合用在大量的排序
+
+---
