@@ -9,8 +9,10 @@ package org.datastructuresandalgorithms.hiskio.sort.insertionsort;
  */
 public class Sort_Insertion1 {
 
-    public static void insertion_sort(int[] nums) {// 執行幾次
+    public static void insertion_sort(int[] nums) {
+        // 執行幾次
         int checkTimes = 0;
+
         // 總共要跑的次數
         for (int i = 0; i < nums.length; i++) {
             for (int j = 1; j < nums.length; j++) {
@@ -21,6 +23,7 @@ public class Sort_Insertion1 {
                 }
             }
         }
+
         System.out.println("總共檢查 " + checkTimes + " 次");
     }
 

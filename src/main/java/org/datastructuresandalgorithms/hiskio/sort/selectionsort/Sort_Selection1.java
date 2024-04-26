@@ -1,26 +1,29 @@
-package org.datastructuresandalgorithms.hiskio.sort.bubblesort;
+package org.datastructuresandalgorithms.hiskio.sort.selectionsort;
 
 /**
- * https://hiskio.com/courses/465/lectures/23092
+ * https://hiskio.com/courses/465/lectures/23093
  * <p>
- * 實作 Bubble Sort
+ * 實作 Selection Sort
  * <p>
- * 只要左邊比右邊大的就交換，且一路比到底
+ * 挑出最小的跟當下做交換.
  * <p>
  * Q: 想想這樣做有沒有可再優化的地方
  */
-public class Sort_Bubble1 {
-    public static void bubble_sort(int[] nums) {
+public class Sort_Selection1 {
+    public static void selection_sort(int[] nums) {
         // 執行幾次
         int checkTimes = 0;
 
-        // 總共要跑的次數
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 1; j < nums.length; j++) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            int minLocation = i;
+            for (int j = i + 1; j < nums.length; j++) {
                 checkTimes++;
-                // 左邊跟右邊比較，如果左邊大就交換
-                if (nums[j - 1] > nums[j]) swap(nums, j - 1, j);
+                if (nums[i] > nums[j]) {
+                    // 找出最小的 num 跟 位置
+                    minLocation = j;
+                }
             }
+            swap(nums, i, minLocation);
         }
 
         System.out.println("總共檢查 " + checkTimes + " 次");
@@ -32,10 +35,11 @@ public class Sort_Bubble1 {
         nums[right] = tmp;
     }
 
+
     public static void main(String[] args) {
         int[] nums = {5, 4, 3, 2, 1};
 //        int[] nums = {2, 1, 3, 4, 5};
-        bubble_sort(nums);
+        selection_sort(nums);
 
         for (int num : nums) {
             System.out.print(num + " ");

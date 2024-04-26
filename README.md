@@ -43,17 +43,25 @@
 了解遞迴的實作方式
 [Fibonacci.java](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio%2FFibonacci.java)
 
-### 排序法
+### 排序法(都從小到大做排序做解釋)
 1. #### [冒泡排序法 bubble sort]([bubblesort](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio%2Fsort%2Fbubblesort))
-- 時間: O(n) ~ O(n^2)
+- 說明: 只要左邊比右邊大的就交換，且一路比到底
+- 時間: O(n) ~ O(n^2)。不管有無排序，每一次都要比較
 - 空間: 原地交換，沒有額外空間使用
 - 實現簡單好理解
 - 不適合用在大量的排序
 
 2. #### [插入排序法 insertion sort]([insertionsort](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio%2Fsort%2Finsertionsort))
+- 說明: 往後找到比當前小的，找到就交換，如果沒有就跳脫。重點就是 break 
 - 時間: O(n) ~ O(n^2)
 - 空間: 原地交換，沒有額外空間使用
-- 適合用在大致上有排序的數列
+- 適合用在大致上有排序的數列，因為有 break 所以假設已經大致上有序，就可以少一些檢查
 - 不適合用在大量的排序
 
+3. #### [選擇排序法 selection sort]([selectionsort](src%2Fmain%2Fjava%2Forg%2Fdatastructuresandalgorithms%2Fhiskio%2Fsort%2Fselectionsort))
+- 說明: 往後找到比我當前最小的，就交換
+- 時間: O(n) ~ O(n^2)。不管有無排序，每一次都要找出最大的數字
+- 空間: 原地交換，沒有額外空間使用
+- 實現簡單好理解
+- 不適合用在大量的排序
 ---

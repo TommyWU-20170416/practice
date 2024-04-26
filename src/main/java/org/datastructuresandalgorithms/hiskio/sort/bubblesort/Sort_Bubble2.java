@@ -30,6 +30,7 @@ public class Sort_Bubble2 {
                 if (nums[j - 1] > nums[j]) swap(nums, j - 1, j);
             }
         }
+
         System.out.println("總共檢查 " + checkTimes + " 次");
     }
 
