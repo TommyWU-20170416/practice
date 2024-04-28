@@ -4,6 +4,10 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
+ * https://hiskio.com/courses/465/lectures/25741
+ * <p>
+ * 找出 start > target 最短路徑
+ * <p>
  * Q: 為什麼不會發生後面的步數超越前面的
  * A: 不是不可能，這就是貪婪法可能不是最優解的原因
  * 他只會抓取當下最小成本的解去做組合，所以是有可能為次優解
