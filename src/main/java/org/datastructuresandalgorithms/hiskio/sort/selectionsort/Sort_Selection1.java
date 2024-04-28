@@ -25,7 +25,6 @@ public class Sort_Selection1 {
             }
             swap(nums, i, minLocation);
         }
-
         System.out.println("總共檢查 " + checkTimes + " 次");
     }
 
@@ -35,10 +34,9 @@ public class Sort_Selection1 {
         nums[right] = tmp;
     }
 
-
     public static void main(String[] args) {
-        int[] nums = {5, 4, 3, 2, 1};
-//        int[] nums = {2, 1, 3, 4, 5};
+        int[] nums = {5, 4, 3, 2, 1}; // 測試完全相反
+//        int[] nums = {2, 1, 3, 4, 5}; // 測試部分已排序
         selection_sort(nums);
 
         for (int num : nums) {

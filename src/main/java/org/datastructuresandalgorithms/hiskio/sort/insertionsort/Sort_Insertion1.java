@@ -8,7 +8,6 @@ package org.datastructuresandalgorithms.hiskio.sort.insertionsort;
  * 只要左邊比右邊大的就交換，如果找不到就可以終止這一 round，減少檢查次數
  */
 public class Sort_Insertion1 {
-
     public static void insertion_sort(int[] nums) {
         // 執行幾次
         int checkTimes = 0;
@@ -34,8 +33,8 @@ public class Sort_Insertion1 {
     }
 
     public static void main(String[] args) {
-        int[] nums = {5, 4, 3, 2, 1};
-//        int[] nums = {2, 1, 3, 4, 5};
+        int[] nums = {5, 4, 3, 2, 1}; // 測試完全相反
+//        int[] nums = {2, 1, 3, 4, 5}; // 測試部分已排序
         insertion_sort(nums);
 
         for (int num : nums) {

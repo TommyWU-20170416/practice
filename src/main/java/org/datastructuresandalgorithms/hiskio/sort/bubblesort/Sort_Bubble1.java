@@ -33,8 +33,8 @@ public class Sort_Bubble1 {
     }
 
     public static void main(String[] args) {
-        int[] nums = {5, 4, 3, 2, 1};
-//        int[] nums = {2, 1, 3, 4, 5};
+        int[] nums = {5, 4, 3, 2, 1}; // 測試完全相反
+//        int[] nums = {2, 1, 3, 4, 5}; // 測試部分已排序
         bubble_sort(nums);
 
         for (int num : nums) {
