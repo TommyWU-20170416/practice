@@ -14,6 +14,10 @@
 4. ### Stack 實作[stack](stack)
     - Array 方式
     - List 方式
+5. ### Queue 實作[queue](queue)
+    - Array 方式
+    - List 方式
+    - 練習 [Priority_Queue.java](queue/Priority_Queue.java)
 
 ### 排序法(都從小到大做排序做解釋)
 
