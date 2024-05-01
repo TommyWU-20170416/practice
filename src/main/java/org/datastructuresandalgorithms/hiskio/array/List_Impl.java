@@ -3,7 +3,9 @@ package org.datastructuresandalgorithms.hiskio.array;
 import java.util.List;
 
 /**
- * 實作一個 array 出來
+ * https://hiskio.com/courses/465/lectures/24223
+ * <p>
+ * 實作一個 linkedlist 出來
  * <p>
  * 提供以下方法
  * <p>

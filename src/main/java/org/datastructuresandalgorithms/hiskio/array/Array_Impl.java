@@ -1,6 +1,8 @@
 package org.datastructuresandalgorithms.hiskio.array;
 
 /**
+ * https://hiskio.com/courses/465/lectures/24222
+ * <p>
  * 實作一個 array 出來
  * <p>
  * 提供以下方法
@@ -85,7 +87,7 @@ public class Array_Impl {
     // remove by value
     public void remove_by_value(int value) {
         for (int i = 0; i < i_end; i++) {
-            if(array[i] == value){
+            if (array[i] == value) {
                 remove_by_index(i);
             }
         }
