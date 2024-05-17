@@ -1,18 +1,20 @@
 package org.datastructuresandalgorithms.hiskio.commonlyused;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 /**
- * https://hiskio.com/courses/465/lectures/23108
+ * https://hiskio.com/courses/465/lectures/23109
  * <p>
- * 找出飛機航班的合格解以及最佳解
+ * 找出飛機航班的最佳解
  * <p>
- * 回溯法 = 在枚舉法每一次計算前，去看是否已經超過合格標準
+ * 分支界限法 = 基於回溯法去優化，找出最佳解
  */
-public class BackTracking {
+public class BranchAndBound {
     Integer[][] hours;
-
+    Integer hour_best = null;
     String[] countries = new String[]{"NP", "IS", "CA", "UK", "US"};
 
     private void build_hour_table() {
@@ -72,58 +74,114 @@ public class BackTracking {
         return null;
     }
 
+    static class Country {
+        String countryName;
+        Integer index;
+        Integer hour_to_take;
+
+        public Country(String countryName, Integer index, Integer hour_to_take) {
+            this.countryName = countryName;
+            this.index = index;
+            this.hour_to_take = hour_to_take;
+        }
+    }
+
+    static class MyComp implements Comparator<Country> {
+        @Override
+        public int compare(Country country1, Country country2) {
+            return country1.hour_to_take.compareTo(country2.hour_to_take);
+        }
+    }
+
+
     /**
-     * backtracking
+     * branchandbound
      **/
     List<String> route = new ArrayList<>();
 
-    public void backtracking(Integer hour_constraint) {
+    public void branchAndBound(Integer hour_constraint) {
         // 設定初始由 NP 開始出發
         String start_country = "NP";
         route.add(start_country);
         countries[0] = null;
 
-        backtracking_recursion(hour_constraint);
+        branchAndBound_recursion(hour_constraint);
     }
 
-    private void backtracking_recursion(Integer hourConstraint) {
+    private void branchAndBound_recursion(Integer hourConstraint) {
         if (route.size() == 5) {
             int hour_total = get_hour_total();
-            if (hour_total < hourConstraint) {
+            if (hour_best == null || hour_total < hour_best) {
+                hour_best = hour_total;
                 System.out.print("    "); // 印出排版好比對
                 printResult(hour_total, route);
             } else {
                 System.out.print("[X]:");
                 printResult(hour_total, route);
             }
-            return;
         } else {
             // 回溯法的地方
             int hour_total = get_hour_total();
-            if (hour_total > hourConstraint) {
+            if (hour_best != null && hour_total > hour_best) {
                 return;
             }
         }
 
 
-        // 查找到所有地方的組合
-        for (int i = 0; i < countries.length; i++) {
-            if (countries[i] == null) continue; // 移除檢查是否為 Null，Null表示已經算過了
-            String nextLocation = countries[i];
-            route.add(nextLocation);
-            countries[i] = null;
+//        // 查找到所有地方的組合 - 在 backtracking 或 enumeration 內都是單純 for 往下跑，我們要做有智慧的選擇
+//        for (int i = 0; i < countries.length; i++) {
+//            if (countries[i] == null) continue; // 移除檢查是否為 Null，Null表示已經算過了
+//            String nextLocation = countries[i];
+//            route.add(nextLocation);
+//            countries[i] = null;
+//
+//            branchAndBound_recursion(hourConstraint);
+//
+//            // 上面移除後，下面還要計算所已把他們加回來
+//            route.remove(nextLocation);
+//            countries[i] = nextLocation;
+//        }
 
-            backtracking_recursion(hourConstraint);
+        PriorityQueue<Country> pq = new PriorityQueue<>(countries.length, new MyComp());
+
+        // step 01. sort child node by hours
+        String c_start = route.get(route.size() - 1);
+        for (int i = 0; i < countries.length; i++) {
+            if (countries[i] == null) continue; // 代表這國家被用掉了，可以略過
+            String c_end = countries[i];
+            Integer hour = get_hour(c_start, c_end);
+            Country c = new Country(c_end, i, hour);
+            pq.add(c);
+        }
+
+        // step 02. pick the shortest path to calculate
+        while (true) {
+            if (pq.size() == 0) break;
+            Country c = pq.poll();
+
+            route.add(c.countryName);
+            countries[c.index] = null;
+
+            branchAndBound_recursion(hourConstraint);
 
             // 上面移除後，下面還要計算所已把他們加回來
-            route.remove(nextLocation);
-            countries[i] = nextLocation;
+            route.remove(c.countryName);
+            countries[c.index] = c.countryName;
         }
     }
 
     private void printResult(int hour_total, List<String> route) {
+        String countryOrigin = "NP";
+        String countryTmp = "NP";
+        int nowHour = 0;
         for (int i = 0; i < route.size(); i++) {
+
+            countryOrigin = new String(countryTmp);
+            countryTmp = route.get(i);
+            nowHour = get_hour(countryOrigin, countryTmp);
+
             System.out.print(route.get(i));
+            System.out.print("(" + nowHour + ")");
             if (i + 1 == route.size()) break;
             System.out.print("->");
         }
@@ -142,9 +200,12 @@ public class BackTracking {
     }
 
     public static void main(String[] args) {
-        BackTracking tp = new BackTracking();
+        BranchAndBound tp = new BranchAndBound();
         tp.build_hour_table();
         Integer hour_constraint = 60; // 65 ~ 100
-        tp.backtracking(hour_constraint);
+        tp.branchAndBound(hour_constraint);
+
+        // 在看結論的時候，會發現雖然已經找到第一個最佳解 56，但再找到 52 之前，還是有很多走到底
+        // 原因是因為這些再走到第四座城市的時候都還 < 56，所以都還是會走到底
     }
 }
