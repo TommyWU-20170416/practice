@@ -43,7 +43,6 @@ public class Greedy {
         this.maze = maze;
         this.pq = new PriorityQueue<>(20, new MyComp());
         this.maze_best = new Integer[maze.length][maze[0].length];
-
     }
 
     // 計算路徑的地方

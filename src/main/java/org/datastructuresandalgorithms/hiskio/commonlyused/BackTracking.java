@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * https://hiskio.com/courses/465/lectures/25737
+ * https://hiskio.com/courses/465/lectures/23108
  * <p>
  * 找出飛機航班的合格解以及最佳解
+ * <p>
+ * 回溯法 = 在枚舉法每一次計算前，去看是否已經超過上一次的最佳解
  */
-public class Enumerative {
+public class BackTracking {
     Integer[][] hours;
 
     String[] countries = new String[]{"NP", "IS", "CA", "UK", "US"};
@@ -95,6 +97,12 @@ public class Enumerative {
                 printResult(hour_total, route);
             }
             return;
+        } else {
+            // 回溯法的地方
+            int hour_total = get_hour_total();
+            if (hour_total > hourConstraint) {
+                return;
+            }
         }
 
 
@@ -134,7 +142,7 @@ public class Enumerative {
     }
 
     public static void main(String[] args) {
-        Enumerative tp = new Enumerative();
+        BackTracking tp = new BackTracking();
         tp.build_hour_table();
         Integer hour_constraint = 60; // 65 ~ 100
         tp.enumeration(hour_constraint);
