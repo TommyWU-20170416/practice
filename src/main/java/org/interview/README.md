@@ -25,3 +25,6 @@
     * [MethodReferenceDemo1.java](methodreference/MethodReferenceDemo1.java)
 12. parallelism
     * [parallelism](parallelism)
+13. scanner 練習 
+    * [ScannerTest.java](scanner/ScannerTest.java)
+      * 移除 \n 在緩衝區資料
