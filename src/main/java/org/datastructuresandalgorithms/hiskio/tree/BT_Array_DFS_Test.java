@@ -1,6 +1,6 @@
 package org.datastructuresandalgorithms.hiskio.tree;
 
-public class BT_Array_Test {
+public class BT_Array_DFS_Test {
     public static void main(String[] args) {
         Integer[] nums = {
                 5,
@@ -9,7 +9,7 @@ public class BT_Array_Test {
                 null, null, 3, null, null, null, null, null
         };
 
-        BT_Array bt = new BT_Array(nums);
+        BT_Array_DFS bt = new BT_Array_DFS(nums);
 
         /** test dfs left with preoder, inorder, postorder */
         System.out.print("preorder:  ");

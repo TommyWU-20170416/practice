@@ -1,6 +1,6 @@
 package org.datastructuresandalgorithms.hiskio.tree;
 
-public class BT_List_Test {
+public class BT_List_DFS_Test {
     public static void main(String[] args) {
         Integer[] nums = {
                 5,
@@ -9,7 +9,7 @@ public class BT_List_Test {
                 null, null, 3, null, null, null, null, null
         };
 
-        BT_List bt = new BT_List(nums);
+        BT_List_DFS bt = new BT_List_DFS(nums);
         bt.buildtree();
         System.out.println();
         // 創建出來的樣子

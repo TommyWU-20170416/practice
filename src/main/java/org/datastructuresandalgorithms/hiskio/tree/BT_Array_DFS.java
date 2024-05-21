@@ -3,10 +3,10 @@ package org.datastructuresandalgorithms.hiskio.tree;
 /**
  * 使用 array 練習 binary tree
  */
-public class BT_Array {
+public class BT_Array_DFS {
     private Integer[] nums;
 
-    public BT_Array(Integer[] nums) {
+    public BT_Array_DFS(Integer[] nums) {
         this.nums = nums;
     }
 

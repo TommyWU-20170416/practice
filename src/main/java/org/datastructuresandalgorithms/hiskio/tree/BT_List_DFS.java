@@ -3,7 +3,7 @@ package org.datastructuresandalgorithms.hiskio.tree;
 /**
  * 練習 preorder, inorder, postorder
  */
-public class BT_List {
+public class BT_List_DFS {
     private Integer[] nums;
     private Node root;
 
@@ -20,7 +20,7 @@ public class BT_List {
         }
     }
 
-    public BT_List(Integer[] nums) {
+    public BT_List_DFS(Integer[] nums) {
         this.nums = nums;
     }
 
