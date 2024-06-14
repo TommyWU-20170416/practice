@@ -81,3 +81,100 @@
     * 遞歸開銷：遞歸調用的額外開銷
     * 如果子問題重疊，會出現重複計算的情況，例如計算斐波那契數列，這時動態規劃可能更優
     * 合併步驟可能比較複雜且耗時，例如在合併排序中
+
+## Graph
+
+### 第一章 Graph 資料結構表現法
+
+#### Adj_Matrix
+
+* 使用 boolean 表示節點與節點之間的關聯
+    * [Graph_Adj_Matrix_Impl_boolean.java](graph/matrix/Graph_Adj_Matrix_impl_boolean.java)
+* 使用 weight 表示節點與節點之間的距離
+    * [Graph_Adj_Matrix_Impl_Integer.java](graph/matrix/Graph_Adj_Matrix_impl_Integer.java)
+* 為了讓印出的時候可以更好的識別，新增 print_edge 的 src 以及 dst，來源跟目的都變成 ABCDE
+    * [Graph_Adj_Matrix_impl_Vertex.java](graph/matrix/Graph_Adj_Matrix_impl_Vertex.java)
+
+```java
+//  A B C D E 
+//A 0 1 3 ∞ ∞ 
+//B ∞ 0 ∞ ∞ 7 
+//C ∞ ∞ 0 2 2 
+//D ∞ ∞ ∞ 0 9 
+//E ∞ ∞ ∞ 9 0 
+```
+
+#### Adj_List
+
+* 使用 list 取代 array 紀錄 節點與節點之間的關聯，此時還沒有距離的概念
+  [Graph_Adj_List_Impl_Integer.java](graph/list/Graph_Adj_List_Impl.java)
+
+```java
+//[0] -> 1 -> 2
+//[1] -> 4
+//[2] -> 3 -> 4
+//[3] -> 4
+//[4] -> 3 
+```
+
+* 使用 EdgeState 新增距離的概念
+  [Graph_Adj_List_Impl_EdgeState.java](graph/list/Graph_Adj_List_Impl_EdgeState.java)
+
+```java
+//[0] -> [1 1] -> [2 3] 
+//[1] -> [4 7] 
+//[2] -> [3 2] -> [4 2] 
+//[3] -> [4 9] 
+//[4] -> [3 9] 
+```
+
+* 把原本的 0 1 2 3 4 取代成 A B C D E
+  [Graph_Adj_List_Impl_EdgeState_Vertex.java](graph/list/Graph_Adj_List_Impl_EdgeState_Vertex.java)
+
+```java
+//[A] -> [B 1] -> [C 3] 
+//[B] -> [E 7] 
+//[C] -> [D 2] -> [E 2] 
+//[D] -> [E 9] 
+//[E] -> [D 9] 
+```
+
+### 第二章 Graph 的遍歷
+
+* BFS
+    * Matrix
+        * [Graph_Adj_Matrix_Impl_Weight_Plus_Vertext_State_bfs.java](graph/bfs/Graph_Adj_Matrix_Impl_Weight_Plus_Vertext_State_bfs.java)
+        * 使用 QUEUE 去紀錄，當節點去遍歷的時候發現往下還有，就新增到 queue 內
+          ```java
+          //bfs: A B C E D
+          // |     | 想像這是 queue，右進左出
+          //第一步: A 放進去 => |A |
+          //第二步: 取出A，發現 BC 有關聯，放進 BC => |BC |
+          //第三步: 取出B，發現 E 有關聯，放進 E => |CE |
+          //第四步: 取出C，發現 D 有關聯，放進 D => |ED |
+          //第五步: 取出E，發現 D 有關聯，可是D放過就不放 => |D |
+          //第六步: 取出D，發現 E 有關聯，可是E放過就不放 => | |
+          ```
+    * List
+        * 做法跟 Matrix 一樣，只是從 array 改成 list 抓資料
+
+* DFS
+    * Matrix
+        * [Graph_Adj_Matrix_Impl_Weight_Plus_Vertext_State_dfs.java](graph/dfs/Graph_Adj_Matrix_Impl_Weight_Plus_Vertext_State_dfs.java)
+        * 使用 recusion + for 按照順序 一層層訪問下去
+        * 在這邊也是有 preorder 以及 postorder 可以使用
+
+        ```java
+        //bfs: A B C E D 
+        //第一步: 訪問 A，A 的第一順位是 B(若有被 set 記錄過，且 內容為MIN 就跳過)
+        //第二步: 訪問 B，B 的第一順位是 E
+        //第三步: 訪問 E，E 的第一順位是 D
+        //第四步: 訪問 D，D 的第一順位是 E，可是被記錄過，所以開始返回
+        //第五步: 返回到 E 這層，沒有其他節點
+        //第六步: 返回到 B 這層，沒有其他節點
+        //第七步: 返回到 A 這層，A 的第二順位是 C
+        //第八步: 訪問 C，C 的第一順位是 D，被訪問過；第二順位是E，被訪問過，所以開始返回
+        //第九步: A 沒有其他順位，結束。
+        ```
+    * List
+        * 做法跟 Matrix 一樣，只是從 array 改成 list 抓資料
