@@ -2,6 +2,7 @@ package org.interview.passbyvalue;
 
 class MyClass {
     int value;
+    MyClass other;
 
     MyClass(int value) {
         this.value = value;
@@ -25,5 +26,21 @@ public class Example {
         modifyObject(myObject, 20);
         modifyValue(originalValue);
         System.out.println("修改後的值: " + myObject.value + ", " + originalValue);
+
+        // 進階的，如果是修改物件內的物件呢
+        MyClass my = new MyClass(1);
+        MyClass other = new MyClass(2);
+        my.other = other;
+        modifyMy_null(my);
+        System.out.println("my       == null: " + (my == null));
+        modifyMyOther_null(my);
+        System.out.println("my.other == null: " + (my.other == null));
+    }
+
+    private static void modifyMy_null(MyClass my) {
+        my = null;
+    }
+    private static void modifyMyOther_null(MyClass my) {
+        my.other = null;
     }
 }
