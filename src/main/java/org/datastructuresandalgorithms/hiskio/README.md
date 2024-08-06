@@ -178,3 +178,12 @@
         ```
     * List
         * 做法跟 Matrix 一樣，只是從 array 改成 list 抓資料
+
+### 第五章 Union Find 關聯性查找
+
+* Union Find(使用 Integer 練習)
+    * [Graph_ValidTree.java](graph/unionfind/Graph_ValidTree.java)
+* MST 最小生成樹
+    * [Graph_MST.java](graph/unionfind/Graph_MST.java)
+* 練習題目
+  * Number_Of_Provinces_547.java 可使用 rank 進行優化
