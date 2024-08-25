@@ -1,4 +1,4 @@
-package org.concurrencypractice;
+package org.wsi.concurrencypractice;
 
 /**
  * 課程來源：https://www.youtube.com/watch?v=t2SgaeCOZjA&list=PLmOn9nNkQxJGuxM62QOkUwD_zroNZj-a7&index=4

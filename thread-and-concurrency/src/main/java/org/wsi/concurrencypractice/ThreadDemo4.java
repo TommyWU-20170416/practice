@@ -1,4 +1,4 @@
-package org.concurrencypractice;
+package org.wsi.concurrencypractice;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;

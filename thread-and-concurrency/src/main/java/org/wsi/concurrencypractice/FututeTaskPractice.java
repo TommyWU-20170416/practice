@@ -1,4 +1,4 @@
-package org.concurrencypractice;
+package org.wsi.concurrencypractice;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
