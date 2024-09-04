@@ -36,8 +36,8 @@ public class Sort_Insertion1 {
     }
 
     public static void main(String[] args) {
-//        int[] nums = {5, 4, 3, 2, 1}; // 測試完全相反
-        int[] nums = {1,2, 3, 4, 5}; // 測試部分已排序
+        int[] nums = {5, 4, 3, 2, 1}; // 測試完全相反
+//        int[] nums = {1,2, 3, 4, 5}; // 測試部分已排序
         insertion_sort(nums);
 
         for (int num : nums) {

@@ -10,8 +10,9 @@ package org.datastructuresandalgorithms.hiskio.sort.selectionsort;
  * Q: 想想這樣做有沒有可再優化的地方
  * A:
  * <ul>
- *     <li> if (nums[i] > nums[j]) 這邊可以把 i 換成 minLocation
- *     原因: 如果找到更小的數值，就把更新 minLocation，這組也會是繼續跟 j 比較</li>
+ *     <li> if (nums[i] > nums[j]) 這邊可以把 i 換成 minLocation </li>
+ *     原因: 原本的都是固定用 nums[i] 去做比對，但是如果 nums[i] 是最大的，怎麼比都會 > 讓最小值找得比較慢
+ *     但如果把 i 改成 最小的 index，就真的會找到最小的值去做交換
  *     <li>若沒有找到最小的就不用交換</li>
  * </ul>
  */
@@ -29,8 +30,8 @@ public class Sort_Selection2 {
                     minLocation = j;
                 }
             }
-            // 如果 minLocation != -1 就交換，因為沒有找到也就沒有交換的必要性
-            if (minLocation != -1) swap(nums, i, minLocation);
+            // 如果 minLocation != i 就交換，因為沒有找到也就沒有交換的必要性
+            if (minLocation != i) swap(nums, i, minLocation);
         }
         System.out.println("總共檢查 " + checkTimes + " 次");
     }
