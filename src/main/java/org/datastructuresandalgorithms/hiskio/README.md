@@ -27,6 +27,18 @@
     - 空間: 原地交換，沒有額外空間使用
     - 實現簡單好理解
     - 不適合用在大量的排序
+    - 空間因為都使用原本的 array 所以空間複雜度是 O(1)
+    - 原本方法
+        - 原本 [5 4 3 2 1] 要檢查 20 次
+        - 時間複雜度: O(N * (N-1))
+    - 優化方法一: [Sort_Bubble2.java](sort%2Fbubblesort%2FSort_Bubble2.java)
+        - 每排一次，一定確保有一個是最大的，所以第二圈 for 長度是可變的
+        - 這樣的優化，`檢查次數為 10 次`
+        - 時間複雜度: O(N * (N-1) / 2)
+    - 優化方法二: [Sort_Bubble3.java](sort%2Fbubblesort%2FSort_Bubble3.java)
+        - 如果在一次的比較中，沒有交換的話，就可以提前結束
+        - 這樣的優化在`部分排序`的情況下可以減少檢查次數
+        - 時間複雜度會是 O(N)
 
 2. #### 插入排序法 - [insertionsort](sort/insertionsort)
    > 說明: 往後找到比當前小的，找到就交換，如果沒有就跳脫。重點就是 break
@@ -34,6 +46,8 @@
     - 空間: 原地交換，沒有額外空間使用
     - 適合用在大致上有排序的數列，因為有 break 所以假設已經大致上有序，就可以少一些檢查
     - 不適合用在大量的排序
+    - 優化方法: (待辦)
+      - 檢查的時候，可以用二分法去找到插入的位置，這樣可以減少檢查次數
 
 3. #### 選擇排序法 - [selectionsort](sort/selectionsort)
    > 說明: 往後找到比我當前最小的，就交換
@@ -41,6 +55,9 @@
     - 空間: 原地交換，沒有額外空間使用
     - 實現簡單好理解
     - 不適合用在大量的排序
+
+4. #### 快速排序法 - [quicksort](sort/quicksort)
+5. #### 合併排序法 - [mergesort](sort/mergesort)
 
 ### 常見演算法-[commonlyused](commonlyused)
 
@@ -186,7 +203,8 @@
 * MST 最小生成樹
     * [Graph_MST.java](graph/unionfind/Graph_MST.java)
 * 練習題目
-  * Number_Of_Provinces_547.java 可使用 rank 進行優化
+    * Number_Of_Provinces_547.java 可使用 rank 進行優化
 
 #### 其他參考
+
 https://www.runoob.com/data-structures/union-find-rank.html
