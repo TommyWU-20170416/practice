@@ -14,6 +14,7 @@ public class Sort_Merge1 {
     }
 
     private static void merge(int[] arr, int l, int m, int r) {
+        checkTimes++;
         int n1 = m - l + 1;
         int n2 = r - m;
 
@@ -26,6 +27,7 @@ public class Sort_Merge1 {
         int i = 0, j = 0, k = l;
 
         while (i < n1 && j < n2) {
+            checkTimes++;
             if (L[i] <= R[j]) {
                 arr[k] = L[i];
                 i++;
@@ -37,12 +39,14 @@ public class Sort_Merge1 {
         }
 
         while (i < n1) {
+            checkTimes++;
             arr[k] = L[i];
             i++;
             k++;
         }
 
         while (j < n2) {
+            checkTimes++;
             arr[k] = R[j];
             j++;
             k++;

@@ -42,7 +42,7 @@ package org.datastructuresandalgorithms.hiskio.sort.quickSort;
  * 依照這樣的方式，由於每次都是將近二分，所以是 O(logN)輪，每一輪都要檢查 N 個，所以是 O(N logN)
  * 但如果每次都挑到最大或最小，就會單一的拆開來，就會是 O(N^2)
  */
-public class Sort_QuickSort1 {
+public class Sort_Quick1 {
 
     // 執行幾次
     private static int checkTimes = 0;
