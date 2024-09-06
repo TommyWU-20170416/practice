@@ -1,25 +1,30 @@
 package org.interview.trycatchfinallyquestion;
 
 /**
- * try 跟 catch 一樣都有自己暫存
- * finally 本就不是拿來做修改變數，而是拿來釋放資源或清除，所以沒有暫存的功能
+ * catch 就跟 try 一樣
  */
 public class TryDemo4 {
     public static void main(String[] args) {
-        System.out.println(test());
+        System.out.println("print: " + test());
     }
 
     public static int test() {
-        int i = 0;
+        int aa = 0;
         try {
-            i = 2;
-            int a = 8 / 0;
-            return i;
+            System.out.println("try: " + aa);
+            aa = 2;
+            System.out.println("try: " + aa);
+            int a = 8 / 0; // 故意讓他跳到 catch
+            return aa;
         } catch (Exception e) {
-            i = 3;
-            return i;
+            System.out.println("catch: " + aa);
+            aa = 3;
+            System.out.println("catch: " + aa);
+            return aa;
         } finally {
-            i = 4;
+            System.out.println("finally: " + aa);
+            aa = 4;
+            System.out.println("finally: " + aa);
         }
     }
 }

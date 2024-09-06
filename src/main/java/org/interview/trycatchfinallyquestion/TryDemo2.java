@@ -5,7 +5,7 @@ package org.interview.trycatchfinallyquestion;
  */
 public class TryDemo2 {
     public static void main(String[] args) {
-        System.out.println(test());
+        System.out.println("print: " + test());
     }
 
     private static int test() {

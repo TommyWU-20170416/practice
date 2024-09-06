@@ -1,20 +1,24 @@
 package org.interview.trycatchfinallyquestion;
 
 /**
- * try 有自己暫存的變數，其他人無法改變
+ * 當 try 已經執行完 aa = 2，準備要 return 的時候就會把要 return 的資料給準備好，後續 finally 就算修改也不影響
  */
 public class TryDemo3 {
     public static void main(String[] args) {
-        System.out.println(test());
+        System.out.println("print: " + test());
     }
 
     public static int test() {
         int aa = 0;
         try {
+            System.out.println("try: " + aa);
             aa = 2;
+            System.out.println("try: " + aa);
             return aa;
         } finally {
+            System.out.println("finally: " + aa);
             aa = 4;
+            System.out.println("finally: " + aa);
         }
     }
 }
