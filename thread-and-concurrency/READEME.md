@@ -1,0 +1,2 @@
+- [info](src/main/java/org/wsi/info)
+  - 用來放一些資訊的類別。例如說 synchronized 使用方式，或是 volatile 的使用方式
